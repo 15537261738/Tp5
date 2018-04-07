@@ -11,7 +11,7 @@
  * 基类控制器可以不用继承controller.php,推荐继承，可以使用父类中的方法和属性
  * 控制器中字符串的输出，全部用return，不用echo
  * 复杂类型的输出，使用dump(),默认格式为html，可以使用json
- *
+ * controller.php没有静态代理
  * 请求对象的使用方法
  * 1，传统方式，new request
  * 2，静态代理
@@ -46,6 +46,7 @@ class Demo3 extends Controller
     {
         //class Demo3 extends Controller
         //use think\Controller;
+        //request属性是controller的一个request实例
         dump($this->request->get());
     }
 
