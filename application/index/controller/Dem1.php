@@ -36,4 +36,31 @@ class Dem1
         $temp->setName('PHP中文网');
         return $temp->getName();
     }
+
+    //绑定一个类到容器（进去的时候是一个类，出来的是对象）
+    public function bindClass()
+    {
+        //把一个类放到容器中，相当于注册到容器中（别名，类）
+        \think\Container::set('temp','\app\common\Temp');
+        //上述方法可以使用助手函数，相当于以下方法
+        //bind('temp','\app\common\Temp');
+
+        //将容器中的类实例化，并取出来用，实例化的同时可以进行初始化（调用构造器）
+        $temp = \think\Container::get('temp',['name'=>'gw']);
+        //助手函数
+        //$temp = app('temp',['name'=>'temp']);
+        return $temp->getName();
+    }
+
+    //绑定一个闭包到容器，此处闭包可以暂时理解为匿名函数
+    public function bindClosure()
+    {
+        //将一个闭包放到容器中，相当于注册到容器中(别名，匿名函数)
+        \think\Container::set('close',function($domain)
+        {
+            return $domain.'是世界上最好的语言';
+        });
+        //将容器中的闭包取出来（别名，参数）
+        return \think\Container::get('close',['domain'=>'PHP']);
+    }
 }
