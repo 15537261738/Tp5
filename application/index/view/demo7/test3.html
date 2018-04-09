@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{$title | default='默认标题'}</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.css">
+    <script src="/static/js/jquery-3.3.1.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-3" style="background:green">788</div>
+        <div class="col-md-6" style="background:blue">
+
+            <table>
+
+                <tr>
+                    <td>编号</td>
+                    <td>用户名</td>
+                    <td>密码</td>
+                </tr>
+                {//foreach $info as $key=>$value}
+                {volist name='info' id='vo' offset='5' length='10'}
+                <tr>
+                    <td>{$vo.Id}</td>
+                    <td>{$vo.username}</td>
+                    <td>{$vo.password}</td>
+
+                </tr>
+                {/volist}
+                {///foreach}
+
+
+
+
+
+            </table>
+
+
+
+
+
+
+
+        </div>
+        <div class="col-md-3" style="background:pink">44444</div>
+    </div>
+
+
+</div>
+
+</body>
+</html>
