@@ -1,0 +1,12 @@
+{//子模版}
+{extend name="public/base" /}
+{//模板中引用文件是以view文件作为起始点}
+{block name="body"}
+<h2>我是模板继承,哈哈哈</h2>
+{/block}
+{//清空父模板}
+{block name="nav"}
+{/block}
+{block name="nav"}
+{__block__}
+{/block}

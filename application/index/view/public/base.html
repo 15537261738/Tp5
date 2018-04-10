@@ -1,0 +1,13 @@
+{//父模板}
+{//父模板中只允许出现block标签和include标签}
+
+{include file="header" /}
+
+{block name="body"}
+主体
+{/block}
+{//父模板的内容没有在子模版里进行重写的话，页面上会显示。如果不想显示，可以在子模版里清空}
+{block = name="nav"}
+导航
+{/block}
+{include file="footer" /}

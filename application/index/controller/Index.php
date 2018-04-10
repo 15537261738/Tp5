@@ -1,21 +1,13 @@
 <?php
 namespace app\index\controller;
 
-use app\index\controller\Connect;
-use app\index\controller\Begin;
-class Index
+use \think\Controller;
+use \think\view;
+class Index extends Controller
 {
     public function index()
     {
-        include_once '../../Db.php';
-        $db = new Connect(HOST,USER,PASSWORD,DB);
-        $sql = 'SELECT * from user';
-        $result = $db -> query($sql);
-        $data = $db -> fetch_all($result);
-        dump($data);
-
-
-
+        return $this->view->fetch();
 
     }
 
