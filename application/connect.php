@@ -11,11 +11,14 @@ class Myconnect{
 
     public function __construct($host,$user,$password,$db)
     {
-        echo '22222222222222';
-        $mysqliRes = new mysqli($host,$user,$password,$db);
-        echo '11111111111111';
-        print_r($mysqliRes);
+        $mysqli = new mysqli($host,$user,$password,$db);
+        if($mysqli->errno){
+            die('Connect Error:'.$mysqli->errno.':'.$mysqli->error);
+        }
     }
+
+
+
 
 
 
