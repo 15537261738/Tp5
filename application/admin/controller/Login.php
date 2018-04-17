@@ -44,18 +44,10 @@ class Login extends Controller
 
     }
 
-
     public function register()
     {
-        if($_POST){
-
-
-        } else {
-
-            $role['name'] = ['学生','教师','管理员'];
-            $this->assign('role',$role);
-            return $this->view->fetch('login');
-
-        }
+        return $this->view->fetch();
     }
+
+
 }
