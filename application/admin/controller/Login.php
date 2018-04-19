@@ -15,33 +15,73 @@ use app\admin\model\Student;
 use think\facade\Session;
 class Login extends Controller
 {
-    public function login(){
-        if($_POST){
-            $username = addslashes($_POST['username']);
-            $password = addslashes(md5($_POST['password']));
-            $role = $_POST['role'];
-            //print_r($_POST);
-            $res = User::where([['username','=',$username],['password','=',$password],['role','=',$role]])->find();
-            if (!empty($res)){  //说明查到该用户信息
-                Session::set('username',$username);
-                Session::set('password',$password);
-                Session::set('role',$role);
-                return Session::get('role');
-                //return $res['role'];
 
+    public function index(){
+
+        return $this->view->fetch();
+
+    }
+
+
+
+
+    public function login($usernum='',$password='',$role=0){
+
+        $userInfo = User::where([['usernum','=',strval($usernum)],['password','=',md5($password)],['role','=',$role]])->find();
+        if($userInfo){
+//            Session::set('username',$username);
+//            Session::set('password',md5($password));
+//            Session::set('role',$role);
+            return $role;
+        } else {
+            $userName = User::get([
+                'username'=>$usernum,
+                'role'=>$role
+            ]);
+            if ($userName){
+               return -2;
             } else {
-                $res = User::field('username')->where([['username','=',$username],['role','=',$role]])->find();
-                if(!empty($res)){
-                    return -2;
-                } else {
-                    return -1;
-                }
+                return -1;
             }
-
-        }else {
-            return $this->view->fetch();
         }
 
+
+
+
+//        if($_POST){
+//            $username = addslashes($_POST['username']);
+//            $password = addslashes(md5($_POST['password']));
+//            $role = $_POST['role'];
+//            //print_r($_POST);
+//            $res = User::where([['username','=',$username],['password','=',$password],['role','=',$role]])->find();
+//            if (!empty($res)){  //说明查到该用户信息
+//                Session::set('username',$username);
+//                Session::set('password',$password);
+//                Session::set('role',$role);
+//                Session::flush();
+//
+//                return $role;
+//                //return $res['role'];
+//
+//            } else {
+//                $res = User::field('username')->where([['username','=',$username],['role','=',$role]])->find();
+//                if(!empty($res)){
+//                    return -2;
+//                } else {
+//                    return -1;
+//                }
+//            }
+//
+//        }else {
+//           if($_GET['check']){
+//               return $this->success('恭喜您，登录成功','admin/index');
+//           } else {
+//               return $this->view->fetch();
+//           }
+//
+//
+//        }
+//
 
 
 
@@ -59,8 +99,8 @@ class Login extends Controller
             $role = $_POST['role'];
 
             //注册前检查用户是否已注册过
-            $userNum = User::field('usernum','username')->where('usernum',$usernum)->find();
-            if (empty($userNum)) {
+            $userName = User::field('username',$username)->where('usernum',$usernum)->find();
+            if (empty($userName)) {
                 $insertData = ['usernum' => $usernum, 'username' => $username, 'password' => $password, 'email' => $email, 'tel' => $tel, 'role' => $role];
                 $userId = User::insertGetId($insertData);
                 if (!empty($userId)){ //说明注册成功
@@ -71,10 +111,6 @@ class Login extends Controller
             } else {
                 return -1;  //已注册过
             }
-
-
-
-
 
         } else {
             return $this->view->fetch();
