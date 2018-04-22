@@ -26,23 +26,27 @@ class Login extends Controller
 
 
     public function login($usernum='',$password='',$role=0){
-
-        $userInfo = User::where([['usernum','=',strval($usernum)],['password','=',md5($password)],['role','=',$role]])->find();
-        if($userInfo){
-//            Session::set('username',$username);
-//            Session::set('password',md5($password));
-//            Session::set('role',$role);
-            return $role;
-        } else {
-            $userName = User::get([
-                'username'=>$usernum,
-                'role'=>$role
-            ]);
-            if ($userName){
-               return -2;
+        if($_POST){
+            $userInfo = User::where([['usernum','=',strval($usernum)],['password','=',md5($password)],['role','=',$role]])->find();
+            if($userInfo){
+                Session::set('username',$userInfo['username']);
+                Session::set('password',$password);
+                Session::set('remark',$userInfo['remark']);
+                Session::set('role',$role);
+                return $role;
             } else {
-                return -1;
+                $userNum = User::get([
+                    'usernum'=>$usernum,
+                    'role'=>$role
+                ]);
+                if ($userNum){
+                   return -2;
+                } else {
+                    return -1;
+                }
             }
+        } else {
+            return $this->view->fetch();
         }
 
 
