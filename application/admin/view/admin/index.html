@@ -1,75 +1,214 @@
 {layout name="layout"/}
-<div class="navbar navbar-inverse" style="margin-top: 0px" >
-        <!--<div class="container-fluid">-->
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">首页</a>
+
+<div class="navbar navbar-default" style="margin-top: 0px" >
+    <div class="navbar-header" style="height: 50px">
+        <ol class="breadcrumb" style="font-size: 16px;text-align: center;line-height: 36px">
+            <li><a href="#" >首页</a></li>
+        </ol>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">欢迎您，{$Think.session.username}<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">注销</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-2">
+        <div class="panel-group" style="margin-bottom: 0px;" id="accordion" role="tablist" aria-multiselectable="true">
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingOne">
+                    <h4 class="panel-title">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">图书管理
+
+                            </button>
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                    <div class="panel-body">
+
+                        <li><a href="/admin/book/add">添加图书</a></li>
+                        <li><a href="/admin/book/update">修改图书</a></li>
+                        <li><a href="/admin/book/delete">删除图书</a></li>
+                    </div>
+                </div>
             </div>
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="/admin/book/borrow">借阅图书<span class="sr-only">(current)</span></a></li>
-                    <li><a href="#">归还图书</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">图书管理<span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#" style="text-align: center">图书列表</a></li>
-                            <li><a href="#" style="text-align: center">添加图书</a></li>
-                            <li><a href="#" style="text-align: center">图书查询</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown open">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">读者管理<span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#" style="text-align: center">读者列表</a></li>
-                            <li><a href="#" style="text-align: center">添加读者</a></li>
-                        </ul>
-                    </li>
+        </div>
+        <div class="panel-group" style="margin-bottom: 0px;" id="accordion" role="tablist" aria-multiselectable="true">
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingTwo">
+                    <h4 class="panel-title">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                            图书分类管理
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                    <div class="panel-body">
 
-                <!--<form class="navbar-form navbar-left">-->
-                    <!--<div class="form-group">-->
-                        <!--<input type="text" class="form-control" placeholder="Search">-->
-                    <!--</div>-->
-                    <!--<button type="submit" class="btn btn-default">Submit</button>-->
-                <!--</form>-->
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">欢迎您，{$Think.session.username}<span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">注销</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div><!-- /.navbar-collapse -->
-        <!--</div>&lt;!&ndash; /.container-fluid &ndash;&gt;-->
+                        <li><a href="/admin/category/add">添加图书分类</a></li>
+                        <li><a href="/admin/category/update">修改图书分类</a></li>
+                        <li><a href="/admin/category/delete">删除图书分类</a></li>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="panel-group" style="margin-bottom: 0px;" id="accordion" role="tablist" aria-multiselectable="true">
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingThree">
+                    <h4 class="panel-title">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                            读者管理
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseThree" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingThree">
+                    <div class="panel-body">
+
+                        <li><a href="#">添加读者信息</a></li>
+                        <li><a href="#">修改读者信息</a></li>
+                        <li><a href="#">删除读者信息</a></li>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="panel-group" style="margin-bottom: 0px;" id="accordion" role="tablist" aria-multiselectable="true">
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingFour">
+                    <h4 class="panel-title">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+                            借阅图书
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseFour" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingFour">
+                    <div class="panel-body">
+
+                        <li><a href="#">添加读者信息</a></li>
+                        <li><a href="#">修改读者信息</a></li>
+                        <li><a href="#">删除读者信息</a></li>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel-group" style="margin-bottom: 0px;" id="accordion" role="tablist" aria-multiselectable="true">
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingSix">
+                        <h4 class="panel-title">
+                            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="true" aria-controls="collapseSix">
+                                归还图书
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseSix" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                        <div class="panel-body">
+
+                            <li><a href="#">添加读者信息</a></li>
+                            <li><a href="#">修改读者信息</a></li>
+                            <li><a href="#">删除读者信息</a></li>
+
+                        </div>
+                    </div>
+                </div>
+
+        </div>
+
+            <div class="panel-group" style="margin-bottom: 0px;" id="accordion" role="tablist" aria-multiselectable="true">
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingFive">
+                        <h4 class="panel-title">
+                            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
+                                数据库备份
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseFive" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingFive">
+                        <div class="panel-body">
+
+                            <li><a href="#">添加读者信息</a></li>
+                            <li><a href="#">修改读者信息</a></li>
+                            <li><a href="#">删除读者信息</a></li>
+
+                        </div>
+                    </div>
+                </div>
     </div>
-<table style="border-color: #0b84fe">
-    <div class="container">
+</div>
+
+
+
+
+
+
+<!--<table style="border-color: #0b84fe">-->
+    <!--<div class="container">-->
+        <!--<div class="content_admin ">-->
+            <!--<table class="table table-bordered">-->
+                <!--<thead>-->
+                <!--<tr align="center">-->
+                    <!--<td colspan="2" align="center">-->
+                        <!--<h4><p class="text-center">图书管理系统（MUXI）</p></h4>-->
+                    <!--</td>-->
+                <!--</tr>-->
+                <!--</thead>-->
+                <!--<tbody>-->
+                <!--<tr>-->
+                    <!--<td>-->
+                        <!--<strong>管理员用户</strong>-->
+                    <!--</td>-->
+                    <!--<td>-->
+                        <!--&lt;!&ndash;<p class="text-info"> </p>&ndash;&gt;-->
+                        <!--<p class="text-info">{$Think.session.username} </p>-->
+                    <!--</td>-->
+                <!--</tr>-->
+                <!--<tr>-->
+                    <!--<td>-->
+                        <!--<strong>备  注</strong>-->
+                    <!--</td>-->
+                    <!--<td>-->
+                        <!--&lt;!&ndash;<p class="text-info"> </p>&ndash;&gt;-->
+                        <!--<p class="text-info">{$Think.session.remark}</p>-->
+                    <!--</td>-->
+                <!--</tr>-->
+                <!--<tr>-->
+                    <!--<td>-->
+                        <!--<strong>您具有的权限</strong>-->
+                    <!--</td>-->
+                    <!--<td>-->
+                        <!--<img src="/static/img/admin_privilege.png"/>-->
+                    <!--</td>-->
+                <!--</tr>-->
+                <!--</tbody>-->
+            <!--</table>-->
+        <!--</div>-->
+    <!--</div>-->
+
+<!--</table>-->
+</div>
+    <div class="col-md-10">
         <div class="content_admin">
             <table class="table table-bordered">
-                <thead>
-                <tr align="center">
-                    <td colspan="2" align="center">
-                        <h4><p class="text-center">图书管理系统（MUXI）</p></h4>
-                    </td>
-                </tr>
-                </thead>
-                <tbody>
                 <tr>
                     <td>
                         <strong>管理员用户</strong>
                     </td>
                     <td>
-                        <!--<p class="text-info"> </p>-->
-                        <p class="text-info">{$Think.session.username} </p>
+                        <p class="text-info">{$Think.session.username}</p>
                     </td>
                 </tr>
                 <tr>
@@ -77,7 +216,6 @@
                         <strong>备  注</strong>
                     </td>
                     <td>
-                        <!--<p class="text-info"> </p>-->
                         <p class="text-info">{$Think.session.remark}</p>
                     </td>
                 </tr>
@@ -89,11 +227,8 @@
                         <img src="/static/img/admin_privilege.png"/>
                     </td>
                 </tr>
-                </tbody>
             </table>
         </div>
-    </div>
 
-</table>
-</div>
+    </div>
 </body>
